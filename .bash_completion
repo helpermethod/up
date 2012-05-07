@@ -1,1 +1,12 @@
-complete -F _list_directories up
+_complete_basename() {
+  current_basename=${COMP_WORDS[COMP_CWORD]
+  basenames=$($_get_basenames)
+
+  COMP_REPLY=($(compgen -W "" -- "$current"))
+}
+
+_get_basenames() {
+  local IFS=""
+}
+
+complete -F _complete_basename up
