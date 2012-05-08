@@ -10,5 +10,5 @@ up() {
 }
 
 _foo() {
-  echo ${PWD%/$basename/*}/$basename
+  echo "${PWD%/$basename/*}/$basename"
 }
