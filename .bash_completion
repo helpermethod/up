@@ -2,7 +2,7 @@ _complete_basename() {
   local basename_to_complete=${COMP_WORDS[COMP_CWORD]}
   local basenames=$(_get_basenames)
 
-  COMP_REPLY=($(compgen -W "$basenames" -- "$current"))
+  COMPREPLY=($(compgen -W "$basenames" -- "$basename_to_complete"))
 }
 
 _get_basenames() {
@@ -10,7 +10,7 @@ _get_basenames() {
   local IFS="/"
 
   for basename in ${PWD:1}; do
-    $basenames=" $basename"
+    basenames="$basenames $basename"
   done
 
   echo "$basenames"
