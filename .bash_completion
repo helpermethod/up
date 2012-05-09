@@ -10,7 +10,7 @@ _get_basenames() {
   local IFS="/"
 
   for basename in ${PWD:1}; do
-    basenames="$basenames $basename"
+    basenames+=" $basename"
   done
 
   echo "$basenames"
