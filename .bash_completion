@@ -8,7 +8,7 @@ _complete_basename() {
 _get_basenames() {
   if [[ $PWD = "/" ]]; then
     echo ""
-    return
+    return 0
   fi
 
   local basenames=("/")

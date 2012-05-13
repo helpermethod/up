@@ -1,7 +1,7 @@
 up() {
   if (($# == 0)); then
     cd ..
-    return
+    return 0
   fi
 
   for basename; do
