@@ -1,12 +1,13 @@
 up() {
   if (($# == 0)); then
     cd ..
-  else
-    for basename; do
-      local result=$(_foo "$basename")
-      cd $result
-    done
+    return
   fi
+
+  for basename; do
+    local result=$(_foo "$basename")
+    cd $result
+  done
 }
 
 _foo() {

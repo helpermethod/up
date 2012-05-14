@@ -6,14 +6,18 @@ _complete_basename() {
 }
 
 _get_basenames() {
-  local basenames="/"
-  local IFS="/"
+  if [[ $PWD = "/" ]]; then
+    echo ""
+    return
+  fi
 
-  for basename in ${PWD:1}; do
-    basenames+=" $basename"
-  done
+  local basenames=("/")
 
-  echo "$basenames"
+  while read -d "/"; do
+    basenames+=("$REPLY")
+  done <<< "${PWD:1}"
+
+  echo "${basenames[@]}"
 }
 
 complete -F _complete_basename up
