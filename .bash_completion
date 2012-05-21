@@ -11,7 +11,7 @@ _complete_basename() {
   fi
 
   local IFS=$'\n'
-  COMPREPLY=($(compgen -W "${basenames[*]}" -- "$basename_to_complete"))
+  COMPREPLY=($(compgen -W "$(printf "%s\n" "${basenames[@]}")" -- "${COMP_WORDS[COMP_CWORD]}"))
 }
 
 complete -F _complete_basename up
