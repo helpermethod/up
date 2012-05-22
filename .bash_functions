@@ -5,7 +5,11 @@ up() {
   fi
 
   for basename; do
-    local result="${PWD%/$basename/*}/$basename"
+    local result=$(_cut_off_part_after_basename "$basename")
     cd $result
   done
+}
+
+_cut_off_part_after_basename() {
+  echo "${PWD%/$1/*}/$1"
 }

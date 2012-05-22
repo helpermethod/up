@@ -1,16 +1,29 @@
+COMPREPLY=()
+
 _complete_basename() {
-  local basenames=()
-
-  if [[ $PWD != "/" ]]; then
-    basenames+=("/")
-
-    while read -d "/"; do
-      basenames+=("$REPLY")
-    done <<< "${PWD:1}"
+  if [[ $PWD = "/" ]]; then
+    return
   fi
 
-  local IFS=$'\n'
-  COMPREPLY=($(compgen -W "$(printf "%s\n" "${basenames[@]}")" -- "${COMP_WORDS[COMP_CWORD]}"))
+  local basename_to_complete=${COMP_WORDS[COMP_CWORD]}
+
+  if [[ $basename_to_complete ]]; then
+
+    while read -d "/"; do
+      if [[ $REPLY =~ ^${basename_to_complete} ]]; then
+        COMPREPLY+=("$REPLY")
+      fi
+    done <<< "${PWD:1}"
+
+  else
+
+    COMPREPLY+=("/")
+
+    while read -d "/"; do
+      COMPREPLY+=("$REPLY")
+    done <<< "${PWD:1}"
+
+  fi
 }
 
 complete -F _complete_basename up
