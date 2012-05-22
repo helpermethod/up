@@ -1,15 +1,28 @@
-_complete_basename() {
-  local basename_to_complete=${COMP_WORDS[COMP_CWORD]}
-  COMPREPLY=()
+COMPREPLY=()
 
-  if [[ $PWD != "/" ]]; then
+_complete_basename() {
+  if [[ $PWD = "/" ]]; then
+    return
+  fi
+
+  local basename_to_complete=${COMP_WORDS[COMP_CWORD]}
+
+  if [[ $basename_to_complete ]]; then
+
+    while read -d "/"; do
+      if [[ $REPLY =~ ^${basename_to_complete} ]]; then
+        COMPREPLY+=("$REPLY")
+      fi
+    done <<< "${PWD:1}"
+
+  else
+
     COMPREPLY+=("/")
 
     while read -d "/"; do
-      if [[ $basename =~ $basename_to_complete ]]; then
-        COMPREPLY+=("$basename")
-      fi
+      COMPREPLY+=("$REPLY")
     done <<< "${PWD:1}"
+
   fi
 }
 
