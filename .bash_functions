@@ -5,11 +5,7 @@ up() {
   fi
 
   for basename; do
-    local result=$(_foo "$basename")
+    local result="${PWD%/$basename/*}/$basename"
     cd $result
   done
-}
-
-_foo() {
-  echo "${PWD%/$basename/*}/$basename"
 }
