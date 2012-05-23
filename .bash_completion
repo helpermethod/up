@@ -6,15 +6,13 @@ _complete_basename() {
   fi
 
   local basename_to_complete=${COMP_WORDS[COMP_CWORD]}
-  local basename_to_match=^.*
 
   if [[ ! $basename_to_complete ]]; then
     COMPREPLY+=("/")
-    basename_to_match=^$basename_to_complete
   fi
 
   while read -d "/"; do
-    if [[ $REPLY =~ $basename_to_match ]]; then
+    if [[ $REPLY = $basename_to_complete* ]]; then
       COMPREPLY+=("$REPLY")
     fi
   done <<< "${PWD:1}"
