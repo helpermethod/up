@@ -7,7 +7,7 @@ up() {
   local result=$PWD
 
   for basename; do
-    result=${result%/$basename/*}/$result
+    result=${result%/$basename/*}/$basename
   done
 
   [[ -d $result ]] || return 1
