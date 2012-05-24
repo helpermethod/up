@@ -10,5 +10,7 @@ up() {
     result=${result%/$basename/*}/$result
   done
 
+  [[ -d $result ]] || return 1
+
   cd "$result"
 }
