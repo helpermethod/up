@@ -4,8 +4,11 @@ up() {
     return 0
   fi
 
+  local result=$PWD
+
   for basename; do
-    local result=${PWD%/$basename/*}/$basename
-    cd $result
+    result=${result%/$basename/*}/$result
   done
+
+  cd "$result"
 }
