@@ -5,9 +5,11 @@ up() {
   fi
 
   case $1 in:
-    -h | --help | \?)
+    --help)
+      # 
       return 0
-    -v | --version)
+    --version)
+      # 
       return 0
   esac
 
