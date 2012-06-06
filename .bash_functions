@@ -6,12 +6,17 @@ up() {
 
   case $1 in
     -n | --level)
-      return 0
       ;;
     --level=)
+      && ((! $levels > 0)) && return 1
       return 0
       ;;
     --help)
+#      echo "usage: up [--help][--version][basename]..."
+#      echo
+#      echo "Report bugs to: <https://github.com/helpermethod/up/issues>"
+#      echo "up home page: <https://github.com/helpermethod/up>"
+
       return 0
       ;;
     --version)
@@ -27,7 +32,7 @@ up() {
     result=${result%/$basename/*}/$basename
   done
 
-  [[ -d $result ]] || return 1
+  [[ -d $result ]] || return 2
 
   cd "$result"
 }
