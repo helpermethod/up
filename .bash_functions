@@ -1,4 +1,4 @@
-read -d '' usage <<- EOF
+read -d '' help <<- EOF
 	usage: up [--help][--version][basename]...
 
 	Report bugs to: <https://github.com/helpermethod/up/issues>
@@ -14,17 +14,17 @@ up() {
 	case $1 in
 		-n | --level)
 
-		;;
+			;;
 		--level=*)
-			[[]] && return 1
 
 			;;
 		--help)
-      echo "$usage"
+      echo "$help"
 
 			return 0
 			;;
 		--version)
+
 			return 0
 			;;
 		-*)
