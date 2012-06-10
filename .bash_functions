@@ -1,38 +1,43 @@
+read -d '' usage <<- EOF
+	usage: up [--help][--version][basename]...
+
+	Report bugs to: <https://github.com/helpermethod/up/issues>
+	up home page: <https://github.com/helpermethod/up>
+EOF
+
 up() {
-  if (($# == 0)); then
-    cd ..
-    return 0
-  fi
+	if (($# == 0)); then
+		cd ..
+		return 0
+	fi
 
-  case $1 in
-    -n | --level)
-      ;;
-    --level=)
-      && ((! $levels > 0)) && return 1
-      return 0
-      ;;
-    --help)
-#      echo "usage: up [--help][--version][basename]..."
-#      echo
-#      echo "Report bugs to: <https://github.com/helpermethod/up/issues>"
-#      echo "up home page: <https://github.com/helpermethod/up>"
+	case $1 in
+		-n | --level)
 
-      return 0
-      ;;
-    --version)
-      return 0
-      ;;
-    -*)
-      ;;
-  esac
+		;;
+		--level=*)
+			[[]] && return 1
 
-  local result=$PWD
+			;;
+		--help)
+      echo "$usage"
 
-  for basename; do
-    result=${result%/$basename/*}/$basename
-  done
+			return 0
+			;;
+		--version)
+			return 0
+			;;
+		-*)
+			;;
+	esac
 
-  [[ -d $result ]] || return 2
+	local result=$PWD
 
-  cd "$result"
+	for basename; do
+		result=${result%/$basename/*}/$basename
+	done
+
+	[[ -d $result ]] || return 2
+
+	cd "$result"
 }
