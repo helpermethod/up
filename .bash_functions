@@ -8,12 +8,25 @@ EOF
 up() {
 	if (($# == 0)); then
 		cd ..
+
 		return 0
 	fi
 
 	case $1 in
 		-n | --level)
+      [[]] && return 1
 
+      local levels=
+
+      if ((levels == 1)); then
+        cd ..
+
+        return 0
+      fi
+
+      _up $2 
+
+      return 0
 			;;
 		--level=*)
 
@@ -40,4 +53,10 @@ up() {
 	[[ -d $result ]] || return 2
 
 	cd "$result"
+}
+
+_up() {
+  for level in {1..$1}; do
+
+  done
 }

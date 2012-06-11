@@ -1,6 +1,6 @@
-COMPREPLY=()
-
 _complete_basename() {
+  COMPREPLY=()
+
 	[[ $PWD = "/" ]] && return 0
 
 	local basename_to_complete=${COMP_WORDS[COMP_CWORD]}
