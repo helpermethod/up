@@ -14,25 +14,23 @@ up() {
 
 	case $1 in
 		-n | --level)
-      [[]] && return 1
+      [[ $2 =~ ^([1-9][0-9]*|0)$ ]] && return 1
 
-      local levels=
+			if ((levels == 1)); then
+				cd ..
 
-      if ((levels == 1)); then
-        cd ..
+				return 0
+			fi
 
-        return 0
-      fi
+			_up $2 
 
-      _up $2 
-
-      return 0
+			return 0
 			;;
 		--level=*)
 
 			;;
 		--help)
-      echo "$help"
+			echo "$help"
 
 			return 0
 			;;
@@ -56,7 +54,11 @@ up() {
 }
 
 _up() {
-  for level in {1..$1}; do
+	local result=$PWD
 
-  done
+	for level in {1..$1}; do
+		result=${result%/*}/
+	done
+
+  cd "$result"
 }
