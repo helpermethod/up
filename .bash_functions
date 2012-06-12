@@ -16,7 +16,7 @@ up() {
 
 	case $1 in
 		-n | --level)
-      [[ $2 =~ $positive_number ]] && return 1
+			[[ $2 =~ $positive_number ]] && return 1
 
 			if ((levels == 1)); then
 				cd ..
@@ -40,8 +40,6 @@ up() {
 
 			return 0
 			;;
-    --)
-			;;
 		-*)
 			;;
 	esac
@@ -63,8 +61,8 @@ _up() {
 	for level in {1..$1}; do
 		result=${result%/*}/
 
-    [[ $result = '/' ]] && break;
+		[[ $result = '/' ]] && break;
 	done
 
-  cd "$result"
+	cd "$result"
 }
