@@ -1,13 +1,13 @@
 _complete_basename() {
   COMPREPLY=()
 
-	[[ $PWD = "/" ]] && return 0
+	[[ $PWD = '/' ]] && return 0
 
 	local basename_to_complete=${COMP_WORDS[COMP_CWORD]}
 
-	[[ ! $basename_to_complete ]] && COMPREPLY+=("/")
+	[[ ! $basename_to_complete ]] && COMPREPLY+=('/')
 
-	while read -d "/"; do
+	while read -d '/'; do
 		[[ $REPLY = $basename_to_complete* ]] && COMPREPLY+=("$REPLY")
 	done <<< "${PWD:1}"
 }

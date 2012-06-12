@@ -62,6 +62,8 @@ _up() {
 
 	for level in {1..$1}; do
 		result=${result%/*}/
+
+    [[ $result = '/' ]] && break;
 	done
 
   cd "$result"
