@@ -5,6 +5,8 @@ read -d '' help <<- EOF
 	up home page: <https://github.com/helpermethod/up>
 EOF
 
+positive_number='^(0|[1-9][0-9]*)$'
+
 up() {
 	if (($# == 0)); then
 		cd ..
@@ -14,7 +16,7 @@ up() {
 
 	case $1 in
 		-n | --level)
-      [[ $2 =~ ^([1-9][0-9]*|0)$ ]] && return 1
+      [[ $2 =~ $positive_number ]] && return 1
 
 			if ((levels == 1)); then
 				cd ..
@@ -22,7 +24,7 @@ up() {
 				return 0
 			fi
 
-			_up $2 
+			_up $2
 
 			return 0
 			;;
@@ -37,6 +39,8 @@ up() {
 		--version)
 
 			return 0
+			;;
+    --)
 			;;
 		-*)
 			;;
