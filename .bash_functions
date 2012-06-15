@@ -63,7 +63,7 @@ _up() {
 		result=${result%/*}/
 	done
 
-  [[ -x $result ]] && return 4
+	[[ -x $result ]] && return 4
 
 	cd "$result"
 }
