@@ -9,27 +9,21 @@ positive_number='^(0|[1-9][0-9]*)$'
 
 up() {
 	if (($# == 0)); then
-		cd ..
-
-		return 0
+		_up 1
+		return $?
 	fi
 
 	case $1 in
 		-n | --level)
-			[[ $2 =~ $positive_number ]] && return 1
+			_up "$2"
 
-			if ((levels == 1)); then
-				cd ..
-
-				return 0
-			fi
-
-			_up $2
-
-			return 0
+      return $?
 			;;
 		--level=*)
+			local levels=${1#*=}
 
+      _up "$levels"
+			return $?
 			;;
 		--help)
 			echo "$help"
@@ -37,10 +31,12 @@ up() {
 			return 0
 			;;
 		--version)
+			echo "$version"
 
 			return 0
 			;;
 		-*)
+			return 2
 			;;
 	esac
 
@@ -50,19 +46,24 @@ up() {
 		result=${result%/$basename/*}/$basename
 	done
 
-	[[ -d $result ]] || return 2
+	[[ -d $result ]] || return 3
+  [[ -x $result ]] || return 4
 
 	cd "$result"
 }
 
 _up() {
+	[[ ! $2 =~ $positive_number ]] && return 1
+
 	local result=$PWD
 
 	for level in {1..$1}; do
-		result=${result%/*}/
-
 		[[ $result = '/' ]] && break;
+
+		result=${result%/*}/
 	done
+
+  [[ -x $result ]] && return 4
 
 	cd "$result"
 }
