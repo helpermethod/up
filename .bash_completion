@@ -1,5 +1,5 @@
 _complete_basename() {
-  COMPREPLY=()
+	COMPREPLY=()
 
 	[[ $PWD = '/' ]] && return 0
 

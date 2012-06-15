@@ -17,12 +17,12 @@ up() {
 		-n | --level)
 			_up "$2"
 
-      return $?
+			return $?
 			;;
 		--level=*)
 			local levels=${1#*=}
 
-      _up "$levels"
+			_up "$levels"
 			return $?
 			;;
 		--help)
@@ -47,7 +47,7 @@ up() {
 	done
 
 	[[ -d $result ]] || return 3
-  [[ -x $result ]] || return 4
+	[[ -x $result ]] || return 4
 
 	cd "$result"
 }
