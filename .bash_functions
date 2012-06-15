@@ -53,7 +53,7 @@ up() {
 }
 
 _up() {
-	[[ ! $2 =~ $positive_number ]] && return 1
+	[[ ! $1 =~ $positive_number ]] && return 1
 
 	local result=$PWD
 
