@@ -35,8 +35,8 @@ up() {
 
 			return 0
 			;;
-    --)
-      ;;
+		--)
+			;;
 		-*)
 			return 2
 			;;
@@ -59,9 +59,7 @@ _up() {
 
 	local result=$PWD
 
-	for level in {1..$1}; do
-		[[ $result = '/' ]] && break;
-
+	for ((i = 0; $result != '/' && i < $1; i++); do
 		result=${result%/*}/
 	done
 
