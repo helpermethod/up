@@ -35,6 +35,8 @@ up() {
 
 			return 0
 			;;
+    --)
+      ;;
 		-*)
 			return 2
 			;;
@@ -46,8 +48,8 @@ up() {
 		result=${result%/$basename/*}/$basename
 	done
 
-	[[ -d $result ]] || return 3
-	[[ -x $result ]] || return 4
+	[[ ! -d $result ]] || return 3
+	[[ ! -x $result ]] || return 4
 
 	cd "$result"
 }
@@ -63,7 +65,7 @@ _up() {
 		result=${result%/*}/
 	done
 
-	[[ -x $result ]] && return 4
+	[[ ! -x $result ]] && return 4
 
 	cd "$result"
 }
