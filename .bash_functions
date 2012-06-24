@@ -59,7 +59,7 @@ _up() {
 
 	local result=$PWD
 
-	for ((i = 0; $result != '/' && i < $1; i++); do
+	for ((i = 0; $result != '/' && i < $1; i++)); do
 		result=${result%/*}/
 	done
 
