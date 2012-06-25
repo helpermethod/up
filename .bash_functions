@@ -48,8 +48,8 @@ up() {
 		result=${result%/$basename/*}/$basename
 	done
 
-	[[ ! -d $result ]] || return 3
-	[[ ! -x $result ]] || return 4
+	[[ ! -d $result ]] && return 3
+	[[ ! -x $result ]] && return 4
 
 	cd "$result"
 }
