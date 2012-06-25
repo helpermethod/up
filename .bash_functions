@@ -55,12 +55,17 @@ up() {
 }
 
 _up() {
-	[[ ! $1 =~ $positive_number ]] && return 1
+	local levels=$1
+
+	[[ ! $levels =~ $positive_number ]] && return 1
 
 	local result=$PWD
+	local level=0
 
-	for ((i = 0; $result != '/' && i < $1; i++); do
+	while [[ result != '/' ]] && ((level < levels)); do
 		result=${result%/*}/
+
+		((level++))
 	done
 
 	[[ ! -x $result ]] && return 4
