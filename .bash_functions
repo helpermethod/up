@@ -1,5 +1,5 @@
 read -d '' help <<- EOF
-	usage: up [--help][--version][-n LEVELS|--level=LEVELS][basename]...
+	usage: up [--help][-n LEVELS|--level=LEVELS][--version][basename]...
 
 	Report bugs to: <https://github.com/helpermethod/up/issues>
 	up home page: <https://github.com/helpermethod/up>
