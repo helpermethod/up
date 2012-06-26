@@ -1,5 +1,5 @@
 read -d '' help <<- EOF
-	usage: up [--help][--version][basename]...
+	usage: up [--help][--version][-n LEVELS|--level=LEVELS][basename]...
 
 	Report bugs to: <https://github.com/helpermethod/up/issues>
 	up home page: <https://github.com/helpermethod/up>
@@ -62,11 +62,14 @@ _up() {
 	local result=$PWD
 	local level=0
 
-	while [[ result != '/' ]] && ((level < levels)); do
-		result=${result%/*}/
+	for ((level = 0; level < levels; ++level)); do
+		result=${result%/*}
 
-		((level++))
-	done
+		if [[ ! $result ]]; then
+			result='/'
+			break
+		fi
+  done
 
 	[[ ! -x $result ]] && return 4
 
