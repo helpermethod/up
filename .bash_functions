@@ -23,6 +23,7 @@ up() {
 			local levels=${1#*=}
 
 			_up "$levels"
+
 			return $?
 			;;
 		--help)
@@ -45,6 +46,10 @@ up() {
 	local result=$PWD
 
 	for basename; do
+		if [[ $result = '/' ]]; then
+			return 3
+    fi
+
 		result=${result%/$basename/*}/$basename
 	done
 
@@ -67,9 +72,10 @@ _up() {
 
 		if [[ ! $result ]]; then
 			result='/'
+
 			break
 		fi
-  done
+	done
 
 	[[ ! -x $result ]] && return 4
 
