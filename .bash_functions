@@ -70,11 +70,11 @@ _up() {
 	local level=0
 
 	for ((level = 0; level < levels; ++level)); do
+		[[ $result = '/' ]] && return 3
+
 		result=${result%/*}
 
-		if [[ ! $result ]]; then
-			return 3
-		fi
+    [[ ! $result ]] && result='/'
 	done
 
 	[[ ! -x $result ]] && return 4
