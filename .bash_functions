@@ -46,11 +46,13 @@ up() {
 	local result=$PWD
 
 	for basename; do
-		if [[ $result = '/' ]]; then
-			return 3
-    fi
+		[[ $result = '/' ]] && return 3
 
-		result=${result%/$basename/*}/$basename
+		if [[ $basename = '/' ]]; then
+			result='/'
+		else
+			result=${result%/$basename/*}/$basename
+		fi
 	done
 
 	[[ ! -d $result ]] && return 3
@@ -71,9 +73,7 @@ _up() {
 		result=${result%/*}
 
 		if [[ ! $result ]]; then
-			result='/'
-
-			break
+			return 3
 		fi
 	done
 
