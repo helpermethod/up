@@ -72,9 +72,7 @@ _up() {
 	for ((level = 0; level < levels; ++level)); do
 		[[ $result = '/' ]] && return 3
 
-		result=${result%/*}
-
-    [[ ! $result ]] && result='/'
+		result=${result%/*}/
 	done
 
 	[[ ! -x $result ]] && return 4
