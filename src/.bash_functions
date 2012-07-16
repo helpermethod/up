@@ -45,6 +45,8 @@ up() {
 
 	local result=$PWD
 
+	[[ $PWD = '/' ]] && local result='/' || local result=$PWD/
+
 	for basename; do
 		[[ $result = '/' ]] && return 3
 
@@ -66,12 +68,12 @@ _up() {
 
 	[[ ! $levels =~ $positive_number ]] && return 1
 
-	local result=$PWD
+	[[ $PWD = '/' ]] && local result='/' || local result=$PWD/
 
 	for ((level = 0; level < levels; ++level)); do
 		[[ $result = '/' ]] && return 3
 
-		result=${result%/*}/
+		result=${result%/*/}/
 	done
 
 	[[ ! -x $result ]] && return 4
