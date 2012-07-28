@@ -5,6 +5,7 @@ read -d '' help <<- EOF
 	up home page: <https://github.com/helpermethod/up>
 EOF
 
+version=1.0.0
 positive_number='^(0|[1-9][0-9]*)$'
 
 up() {
@@ -27,12 +28,12 @@ up() {
 			return $?
 			;;
 		--help)
-			echo "$help"
+			printf '%s\n' "$help"
 
 			return 0
 			;;
 		--version)
-			echo "$version"
+			printf '%s\n' "$version"
 
 			return 0
 			;;
