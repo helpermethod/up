@@ -28,12 +28,12 @@ up() {
 			return $?
 			;;
 		--help)
-			printf '%s\n' "$help"
+			echo "$help"
 
 			return 0
 			;;
 		--version)
-			printf '%s\n' "$version"
+			echo "$version"
 
 			return 0
 			;;
