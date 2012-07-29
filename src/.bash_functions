@@ -44,8 +44,6 @@ up() {
 			;;
 	esac
 
-	local result=$PWD
-
 	[[ $PWD = '/' ]] && local result='/' || local result=$PWD/
 
 	for basename; do
