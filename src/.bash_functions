@@ -5,7 +5,16 @@ read -d '' help <<- EOF
 	up home page: <https://github.com/helpermethod/up>
 EOF
 
-version=1.0.0
+version_number=1.0.0
+
+read -d '' version <<- EOF
+	up $version_number
+	Copyright (C) 2012 Oliver Weiler
+	License GNU GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+	This is free software: you are free to change and redistribute it.
+	There is NO WARRANTY, to the extent permitted by law.
+EOF
+
 positive_number='^(0|[1-9][0-9]*)$'
 
 up() {
