@@ -73,11 +73,7 @@ up() {
 	for basename; do
 		[[ $result = '/' ]] && return 3
 
-		if [[ $basename = '/' ]]; then
-			result='/'
-		else
-			result=${result%/$basename/*}/$basename
-		fi
+    [[ $basename = '/' ]] && result='/' || result=${result%$basename/*}/$basename
 	done
 
 	[[ ! -d $result ]] && return 3
