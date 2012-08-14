@@ -41,5 +41,10 @@ it 'should change the current directory to the grandparent directory' '{
 it 'should fail if the current directory is the root directory' '{
 	cd /
 	up
-	(($? == 3))	
+	(($? == 3))
+}'
+
+it 'should change the current directory to the home directory' '{
+  cd ~
+  [[ $PWD = ~ ]]
 }'
