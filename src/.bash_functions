@@ -31,7 +31,7 @@ read -d '' version <<- EOF
 EOF
 
 positive_number='^(0|[1-9][0-9]*)$'
-starts_with_tilde='^~'
+absolute_path='^/'
 
 up() {
 	if (($# == 0)); then
@@ -71,11 +71,14 @@ up() {
 
 	[[ $PWD = '/' ]] && local result='/' || local result=$PWD/
 
+  echo "begin: $result"
+
 	for basename; do
 		[[ $result = '/' ]] && return 3
 
-    [[ $basename =~ $starts_with_tilde ]] && basename=${basename/\~/$HOME}
-    [[ $basename = '/' ]] && result='/' || result=${result%$basename/*}/$basename
+    echo "basename: $basename"
+
+    [[ $basename =~ $absolute_path ]] && result=$basename || result=${result%/$basename/*}/$basename
 	done
 
 	[[ ! -d $result ]] && return 3
