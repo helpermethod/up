@@ -71,12 +71,8 @@ up() {
 
 	[[ $PWD = '/' ]] && local result='/' || local result=$PWD/
 
-  echo "begin: $result"
-
 	for basename; do
 		[[ $result = '/' ]] && return 3
-
-    echo "basename: $basename"
 
     [[ $basename =~ $absolute_path ]] && result=$basename || result=${result%/$basename/*}/$basename
 	done
