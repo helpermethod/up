@@ -32,6 +32,7 @@ EOF
 
 positive_number='^(0|[1-9][0-9]*)$'
 absolute_path='^/'
+ending_on_slash='/$'
 
 up() {
 	if (($# == 0)); then
@@ -74,6 +75,7 @@ up() {
 	for basename; do
 		[[ $result = '/' ]] && return 3
 
+		[[ $basename =~ $ending_on_slash ]] && basename=${basename%?}
     [[ $basename =~ $absolute_path ]] && result=$basename || result=${result%/$basename/*}/$basename
 	done
 
