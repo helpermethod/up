@@ -35,10 +35,10 @@ absolute_path='^/'
 ending_on_slash='/$'
 
 up() {
-	((# == 0)) && {
+	if ((# == 0)); then
 		_up 1
 		return $?
-	}
+	fi
 
 	case $1 in
 		-n | --level)
