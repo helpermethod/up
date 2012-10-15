@@ -35,7 +35,7 @@ absolute_path='^/'
 ending_on_slash='/$'
 
 up() {
-	((# == 0)) && {
+	(($# == 0)) && {
 		_up 1
 		return $?
 	}
