@@ -3,3 +3,5 @@
 ## Installation
 
 ## Usage
+
+## License
