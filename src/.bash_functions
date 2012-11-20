@@ -75,7 +75,7 @@ up() {
 	for basename; do
 		[[ $result = '/' ]] && return 3
 
-		[[ $basename =~ $ending_on_slash ]] && basename=${basename%?}
+		[[ $basename =~ $ending_on_slash ]] && basename=${basename%/}
 		[[ $basename =~ $absolute_path ]] && result=$basename || result=${result%/$basename/*}/$basename
 	done
 
