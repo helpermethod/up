@@ -17,4 +17,4 @@
 
 ## License
 
-[GNU GPLv3+](http://www.gnu.org/licenses/gpl.html)
+[GNU GPLv3+: GNU GPL version 3 or later](http://www.gnu.org/licenses/gpl.html)
