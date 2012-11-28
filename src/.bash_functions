@@ -31,8 +31,6 @@ read -d '' version <<- EOF
 EOF
 
 positive_number='^(0|[1-9][0-9]*)$'
-absolute_path='^/'
-ending_on_slash='/$'
 
 up() {
 	if (($# == 0)); then
@@ -54,12 +52,12 @@ up() {
 			return $?
 			;;
 		--help)
-			echo "$help"
+			printf '%s\n' "$help"
 
 			return 0
 			;;
 		--version)
-			echo "$version"
+			printf '%s\n' "$version"
 
 			return 0
 			;;
@@ -70,13 +68,13 @@ up() {
 			;;
 	esac
 
-	[[ $PWD = '/' ]] && local result='/' || local result=$PWD/
+	[[ $PWD == '/' ]] && local result='/' || local result=$PWD/
 
 	for basename; do
-		[[ $result = '/' ]] && return 3
+		[[ $result == '/' ]] && return 3
 
-		[[ $basename =~ $ending_on_slash ]] && basename=${basename%/}
-		[[ $basename =~ $absolute_path ]] && result=$basename || result=${result%/$basename/*}/$basename
+		basename=${basename%/}
+		[[ $basename == /* ]] && result=$basename || result=${result%/$basename/*}/$basename
 	done
 
 	[[ ! -d $result ]] && return 3
@@ -90,7 +88,7 @@ _up() {
 
 	[[ ! $levels =~ $positive_number ]] && return 1
 
-	[[ $PWD = '/' ]] && local result='/' || local result=$PWD/
+	[[ $PWD == '/' ]] && local result='/' || local result=$PWD/
 
 	for ((level = 0; level < levels; ++level)); do
 		[[ $result = '/' ]] && return 3
