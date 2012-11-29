@@ -13,22 +13,22 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-_complete_basename() {
-	local basename_to_complete=${COMP_WORDS[COMP_CWORD]}
+_complete_up() {
+	local current_word=${COMP_WORDS[COMP_CWORD]}
 
-	if [[ $basename_to_complete == -* ]]; then
-		_append_gnu_standard_options
+	if [[ $current_word == -* ]]; then
+		_complete_gnu_standard_options
 
 		return
 	fi
 
-	[[ $PWD == '/' ]] && return 0
+	[[ $PWD == '/' ]] && return
 
-	[[ -z $basename_to_complete ]] && COMPREPLY+=('/')
+	[[ -z $currrent_word ]] && COMPREPLY+=('/')
 
 	while read -d '/'; do
-		[[ $REPLY == $basename_to_complete* ]] && COMPREPLY+=("${REPLY}/")
+		[[ $REPLY == $current_word* ]] && COMPREPLY+=("${REPLY}/")
 	done <<< "${PWD:1}"
 }
 
-complete -F _complete_basename up
+complete -F _complete_up up
