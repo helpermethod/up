@@ -17,7 +17,9 @@ _complete_up() {
 	local current_word=${COMP_WORDS[COMP_CWORD]}
 
 	if [[ $current_word == -* ]]; then
-		COMPREPLY=($(compgen -W '--help --level= --version' -- "${COMP_WORDS[COMP_CWORD]}"))
+		COMPREPLY=($(compgen -W '--help --level= --version' -- "$current_word"))
+
+		return
 	fi
 
 	[[ $PWD == '/' ]] && return
