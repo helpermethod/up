@@ -13,43 +13,20 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-describe 'up'
+_complete_up() {
+	local current_word=${COMP_WORDS[COMP_CWORD]}
 
-before_each() {
-	initial_directory=$PWD
+	if [[ $current_word == -* ]]; then
+		COMPREPLY=($(compgen -W '--help --level= --version' -- "${COMP_WORDS[COMP_CWORD]}"))
+	fi
 
-	mkdir -p foo/bar/baz
+	[[ $PWD == '/' ]] && return
+
+	[[ -z $currrent_word ]] && COMPREPLY+=('/')
+
+	while read -d '/'; do
+		[[ $REPLY == $current_word* ]] && COMPREPLY+=("${REPLY}/")
+	done <<< "${PWD:1}"
 }
 
-after_each() {
-	cd "$initial_directory"
-	rm -r foo
-}
-
-it 'should change the current directory to the parent directory' '{
-	cd foo/bar
-	up
-
-	string_equals "$PWD" "$initial_directory/foo"
-}'
-
-it 'should change the current directory to the grandparent directory' '{
-	cd foo/bar/baz
-	up -n 2
-
-	string_equals "$PWD" "$initial_directory/foo"
-}'
-
-it 'should fail if the current directory is the root directory' '{
-	cd /
-	up
-	(($? == 3))
-
-	integer_equals "$?" "3"
-}'
-
-it 'should change the current directory to the home directory' '{
-  up ~
-
-  string_equals "$PWD" "~"
-}'
+complete -F _complete_up up
