@@ -20,7 +20,7 @@ read -d '' help <<- EOF
 	up home page: <https://github.com/helpermethod/up>
 EOF
 
-version_number=1.0.0
+readonly version_number=1.0.0
 
 read -d '' version <<- EOF
 	up $version_number
@@ -30,7 +30,7 @@ read -d '' version <<- EOF
 	There is NO WARRANTY, to the extent permitted by law.
 EOF
 
-positive_number='^(0|[1-9][0-9]*)$'
+readonly positive_number='^(0|[1-9][0-9]*)$'
 
 up() {
 	if (($# == 0)); then
