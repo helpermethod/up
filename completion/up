@@ -24,7 +24,7 @@ _complete_up() {
 
 	[[ $PWD == '/' ]] && return
 
-	[[ -z $currrent_word ]] && COMPREPLY+=('/')
+	[[ -z $current_word ]] && COMPREPLY+=('/')
 
 	while read -d '/'; do
 		[[ $REPLY == $current_word* ]] && COMPREPLY+=("${REPLY}/")
