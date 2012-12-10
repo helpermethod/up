@@ -34,20 +34,20 @@ readonly positive_number='^(0|[1-9][0-9]*)$'
 
 up() {
 	if (($# == 0)); then
-		_up 1
+		__up 1
 		return $?
 	fi
 
 	case $1 in
 		-n | --level)
-			_up "$2"
+			__up "$2"
 
 			return $?
 			;;
 		--level=*)
 			local levels=${1#*=}
 
-			_up "$levels"
+			__up "$levels"
 
 			return $?
 			;;
@@ -83,7 +83,7 @@ up() {
 	cd "$result"
 }
 
-_up() {
+__up() {
 	local levels=$1
 
 	[[ ! $levels =~ $positive_number ]] && return 1
