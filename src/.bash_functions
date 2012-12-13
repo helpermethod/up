@@ -20,7 +20,7 @@ read -d '' help <<- EOF
 	up home page: <https://github.com/helpermethod/up>
 EOF
 
-readonly version_number=1.0.0
+readonly version_number='1.0.0'
 
 read -d '' version <<- EOF
 	up $version_number
