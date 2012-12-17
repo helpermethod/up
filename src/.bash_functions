@@ -20,7 +20,7 @@ read -d '' help <<- EOF
 	up home page: <https://github.com/helpermethod/up>
 EOF
 
-readonly version_number='1.0.0'
+version_number='1.0.0'
 
 read -d '' version <<- EOF
 	up $version_number
@@ -30,7 +30,7 @@ read -d '' version <<- EOF
 	There is NO WARRANTY, to the extent permitted by law.
 EOF
 
-readonly positive_number='^(0|[1-9][0-9]*)$'
+positive_number='^(0|[1-9][0-9]*)$'
 
 up() {
 	if (($# == 0)); then
@@ -64,6 +64,7 @@ up() {
 		--)
 			;;
 		-*)
+			printf '%s: illegal option -- %s\n' "$FUNCNAME" "$1"
 			return 2
 			;;
 	esac
