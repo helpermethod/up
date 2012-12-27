@@ -35,21 +35,21 @@ positive_number='^(0|[1-9][0-9]*)$'
 up() {
 	if (($# == 0)); then
 		__up 1
-		return $?
+		return
 	fi
 
 	case $1 in
 		-n | --level)
 			__up "$2"
 
-			return $?
+			return
 			;;
 		--level=*)
 			local levels=${1#*=}
 
 			__up "$levels"
 
-			return $?
+			return
 			;;
 		--help)
 			printf '%s\n' "$help"
