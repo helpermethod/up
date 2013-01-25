@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-_complete_up() {
+_up() {
 	local current_word=${COMP_WORDS[COMP_CWORD]}
 
 	if [[ $current_word == -* ]]; then
