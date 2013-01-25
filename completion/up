@@ -19,10 +19,10 @@ _complete_up() {
 	if [[ $current_word == -* ]]; then
 		COMPREPLY=($(compgen -W '--help --level= --version' -- "$current_word"))
 
-		return
+		return 0
 	fi
 
-	[[ $PWD == '/' ]] && return
+	[[ $PWD == '/' ]] && return 0
 
 	[[ -z $current_word ]] && COMPREPLY+=('/')
 

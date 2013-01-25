@@ -14,7 +14,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 read -d '' help <<- EOF
-	usage: up [--help][-n LEVELS|--level=LEVELS][--version][basename]...
+	usage: up [-n levels][--help][--version][basename]...
 
 	Report bugs to: <https://github.com/helpermethod/up/issues>
 	up home page: <https://github.com/helpermethod/up>
@@ -35,6 +35,7 @@ positive_number='^(0|[1-9][0-9]*)$'
 up() {
 	if (($# == 0)); then
 		__up 1
+
 		return
 	fi
 
@@ -69,7 +70,8 @@ up() {
 			;;
 	esac
 
-	[[ $PWD == '/' ]] && local result='/' || local result=$PWD/
+	local result
+	[[ $PWD == '/' ]] && result='/' || result=$PWD/
 
 	for basename; do
 		[[ $result == '/' ]] && return 3
@@ -89,7 +91,8 @@ __up() {
 
 	[[ ! $levels =~ $positive_number ]] && return 1
 
-	[[ $PWD == '/' ]] && local result='/' || local result=$PWD/
+	local result
+	[[ $PWD == '/' ]] && result='/' || result=$PWD/
 
 	for ((level = 0; level < levels; ++level)); do
 		[[ $result = '/' ]] && return 3
