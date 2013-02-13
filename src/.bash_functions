@@ -14,7 +14,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 read -d '' help <<- EOF
-	usage: up [-n levels][--help][--version][basename]...
+	usage: up [--help][--version][-n levels][basename]...
 
 	Report bugs to: <https://github.com/helpermethod/up/issues>
 	up home page: <https://github.com/helpermethod/up>

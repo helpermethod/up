@@ -27,8 +27,16 @@ _up() {
 	[[ -z $current_word ]] && COMPREPLY+=('/')
 
 	while read -d '/'; do
-		[[ $REPLY == $current_word* ]] && COMPREPLY+=("${REPLY}/")
+		if [[ $REPLY == $current_word* ]]; then
+			local escaped_basename=$REPLY
+
+			for character in \ ; do
+				escaped_basename=${escaped_basename/$character/\\$character}
+			done
+
+			COMPREPLY+=("$escaped_basename/")
+		fi
 	done <<< "${PWD:1}"
 }
 
-complete -F _complete_up up
+complete -F _up up
