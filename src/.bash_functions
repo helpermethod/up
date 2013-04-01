@@ -77,7 +77,7 @@ up() {
 		[[ $result == '/' ]] && return 3
 
 		basename=${basename%/}
-		result=${result%/"$basename"/*}/$basename
+    [[ $basename == /* ]] && result=$basename || result=${result%/"$basename"/*}/$basename
 	done
 
 	[[ ! -d $result ]] && return 3
