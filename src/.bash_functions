@@ -63,7 +63,7 @@ up() {
 		--)
 			;;
 		-*)
-			printf '%s: illegal option -- %s\n' "$FUNCNAME" "$1" 1 > &2
+			printf '%s: illegal option -- %s\n' "$FUNCNAME" "$1"
 			return 1
 			;;
 	esac

@@ -24,19 +24,14 @@ _up() {
 
 	[[ $PWD == '/' ]] && return 0
 
-	local characters_to_escape=(" " "[" "]" "*" "?")
-
 	[[ -z $current_word ]] && COMPREPLY+=('/')
 
 	while read -d '/'; do
 		if [[ $REPLY == $current_word* ]]; then
-			local escaped_basename=$REPLY
+			local escaped_basename
+      printf -v escaped_basename '%q/' "$REPLY"
 
-			for character in "${characters_to_escape[@]}"; do
-				escaped_basename=${escaped_basename/"$character"/\\$character}
-			done
-
-			COMPREPLY+=("$escaped_basename/")
+			COMPREPLY+=("$escaped_basename")
 		fi
 	done <<< "${PWD:1}"
 }
