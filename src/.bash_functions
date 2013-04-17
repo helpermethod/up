@@ -34,21 +34,19 @@ positive_number='^(0|[1-9][0-9]*)$'
 
 up() {
 	if (($# == 0)); then
-		__up 1
+		__go_up_by_level 1
 
 		return
 	fi
 
 	case $1 in
 		-n | --level)
-			__up "$2"
+			__go_up_by_level "$2"
 
 			return
 			;;
 		--level=*)
-			local levels=${1#*=}
-
-			__up "$levels"
+			__go_up_by_level "${1#*=}"
 
 			return
 			;;
@@ -65,11 +63,15 @@ up() {
 		--)
 			;;
 		-*)
-			printf '%s: illegal option -- %s\n' "$FUNCNAME" "$1"
-			return 2
+			printf '%s: illegal option -- %s\n' "$FUNCNAME" "$1" 1 > &2
+			return 1
 			;;
 	esac
 
+	__go_up_by_basenames "$@"
+}
+
+__go_up_by_basenames() {
 	local result
 	[[ $PWD == '/' ]] && result='/' || result=$PWD/
 
@@ -77,7 +79,9 @@ up() {
 		[[ $result == '/' ]] && return 3
 
 		basename=${basename%/}
-    [[ $basename == /* ]] && result=$basename || result=${result%/"$basename"/*}/$basename
+		[[ $basename == */* ]] && return 5
+
+		result=${result%/"$basename"/*}/$basename
 	done
 
 	[[ ! -d $result ]] && return 3
@@ -86,10 +90,10 @@ up() {
 	cd "$result"
 }
 
-__up() {
+__go_up_by_level() {
 	local levels=$1
 
-	[[ ! $levels =~ $positive_number ]] && return 1
+	[[ ! $levels =~ $positive_number ]] && return 2
 
 	local result
 	[[ $PWD == '/' ]] && result='/' || result=$PWD/
