@@ -34,19 +34,19 @@ positive_number='^(0|[1-9][0-9]*)$'
 
 up() {
 	if (($# == 0)); then
-		__go_up_by_level 1
+		__go_up_by_levels 1
 
 		return
 	fi
 
 	case $1 in
 		-n | --level)
-			__go_up_by_level "$2"
+			__go_up_by_levels "$2"
 
 			return
 			;;
 		--level=*)
-			__go_up_by_level "${1#*=}"
+			__go_up_by_levels "${1#*=}"
 
 			return
 			;;
@@ -90,7 +90,7 @@ __go_up_by_basenames() {
 	cd "$result"
 }
 
-__go_up_by_level() {
+__go_up_by_levels() {
 	local levels=$1
 
 	[[ ! $levels =~ $positive_number ]] && return 2
