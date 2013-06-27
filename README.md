@@ -21,15 +21,49 @@ When called with no arguments, `up` works exactly like `cd ..` (but is 3 chars s
     $ up
     $ pwd
     /home
-    
-If you want to go `up` more than one level, pass it the number of levels via the `--level` option
+
+If you want to go `up` more than one level, the number of levels can be set using the `--level` option
 
     $ cd home/helpermethod/projects/bash-specs
     $ up --levels=2
     $ pwd
     /home/helpermethod
-    $ up --levels 2 # you can use a whitespace instead of '='
-    $ up -n 2 # there's also a short option equivalent
+    $ cd home/helpermethod/projects/bash-specs
+    $ up --levels 2 # you can also separate the option and option argument using whitespace
+    $ pwd
+    /
+
+If you don't like using long options, there's also an equivalent short option
+
+    $ cd home/helpermethod/projects/bash-specs
+    $ up -n 2
+    $ pwd
+    /home/helpermethod
+
+While this is all nice and helpful, `up` true power lies in its ability to handle basenames
+
+    $ cd home/helpermethod/projects/bash-specs
+    $ up helpermethod
+    $ pwd
+    /home/helpermethod
+
+It also allows you to pass it paths, that is a lists of pathnames
+
+    $ cd /home/helpermethod/project/bash-specs
+    $ up project home
+    $ pwd
+    /home
+
+This is especially useful when you have multiple basenames with the same name
+
+    $ cd /home/helpermethod/workspace/com/helpermethod/up
+    $ up helpermethod
+    $ pwd
+    /home/helpermethod/workspace/com/helpermethod
+    $ cd -
+    $ up workspace helpermethod
+    $ pwd
+    /home/helpermethod
 
     up --help
     up --version
