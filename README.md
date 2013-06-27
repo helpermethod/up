@@ -9,11 +9,9 @@
 
 ## Installation
 
-## Manual
+## Quickstart
 
-## Using make
-
-## Getting Started
+## Usage
 
 When called with no arguments, `up` works exactly like `cd ..` (but is 3 chars shorter)
 
