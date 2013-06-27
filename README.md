@@ -47,7 +47,7 @@ While this is all nice and helpful, `up` true power lies in its ability to handl
     $ pwd
     /home/helpermethod
 
-It also allows you to pass it paths, that is a lists of pathnames
+It also allows you to pass it paths, that is a lists of basenames
 
     $ cd /home/helpermethod/project/bash-specs
     $ up project home
