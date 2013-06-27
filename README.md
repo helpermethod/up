@@ -3,7 +3,7 @@
 ## Features
 
 * works with Bash 3.x
-* powerful Bash completion
+* powerful Bash completion for options and basenames
 * handles all sorts of directory names
 * written in pure Bash - no external commands are used
 
@@ -15,13 +15,21 @@
 
 ## Getting Started
 
-    up
+When called with no arguments, `up` works exactly like `cd ..` (but is 3 chars shorter)
 
-    up f[tab]
+    $ cd /home/helpermethod
+    $ up
+    $ pwd
+    /home
+    
+If you want to go `up` more than one level, pass it the number of levels via the `--level` option
 
-    up -n 2
-    up --level=2
-    up --level 2
+    $ cd home/helpermethod/projects/bash-specs
+    $ up --levels=2
+    $ pwd
+    /home/helpermethod
+    $ up --levels 2 # you can use a whitespace instead of '='
+    $ up -n 2 # there's also a short option equivalent
 
     up --help
     up --version
