@@ -1,8 +1,19 @@
 # up
 
+## Features
+
+* works with Bash 3.x
+* powerful Bash completion
+* handles all sorts of directory names
+* written in pure Bash - no external commands are used
+
 ## Installation
 
-## Usage
+## Manual
+
+## Using make
+
+## Getting Started
 
     up
 
