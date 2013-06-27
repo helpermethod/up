@@ -29,7 +29,7 @@ _up() {
 	while read -d '/'; do
 		if [[ $REPLY == $current_word* ]]; then
 			local escaped_basename
-      printf -v escaped_basename '%q/' "$REPLY"
+			printf -v escaped_basename '%q/' "$REPLY"
 
 			COMPREPLY+=("$escaped_basename")
 		fi
