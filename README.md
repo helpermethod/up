@@ -7,8 +7,6 @@
 * works with all sorts of directory names
 * written in pure Bash - no external commands are used
 
-## Installation
-
 ## Quickstart
 
 ## Usage
