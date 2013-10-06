@@ -79,6 +79,13 @@ __go_up_by_basenames() {
 	for basename; do
 		[[ $result == '/' ]] && return 3
 
+		if [[ $basename == '/' ]]; then
+			result='/'
+			continue
+    fi
+
+    # strips off trailing slash; this allows a user to pass a basename with an
+    # optional trailing slash
 		basename=${basename%/}
 		[[ $basename == */* ]] && return 5
 
