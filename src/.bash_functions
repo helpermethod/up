@@ -15,7 +15,16 @@
 
 read -d '' help <<- EOF
 	Usage: up [OPTION]... [BASENAME]...
-	 or:   up [OPTION]... -n LEVEL
+	  or:  up [OPTION]... -n LEVEL
+	Lore ipsum.
+
+	Mandatory arguments to long options are mandatory for short options too.
+	  -n, --level=LEVELS
+	      --help          display this help and exit
+	      --version       output version information and exit
+
+	Exit status:
+	 0 if OK
 
 	Report bugs to: <https://github.com/helpermethod/up/issues>
 	up home page: <https://github.com/helpermethod/up>
@@ -64,7 +73,7 @@ up() {
 		--)
 			;;
 		-*)
-			printf '%s: illegal option -- %s\n' "$FUNCNAME" "$1"
+			printf "%s: invalid option -- '%s'\n" "$FUNCNAME" "${1#-}"
 			return 1
 			;;
 	esac
@@ -82,10 +91,10 @@ __go_up_by_basenames() {
 		if [[ $basename == '/' ]]; then
 			result='/'
 			continue
-    fi
+		fi
 
-    # strips off trailing slash; this allows a user to pass a basename with an
-    # optional trailing slash
+		# strips off trailing slash; this allows a user to pass a basename with an
+		# optional trailing slash
 		basename=${basename%/}
 		[[ $basename == */* ]] && return 5
 
