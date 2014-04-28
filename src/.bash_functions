@@ -93,7 +93,7 @@ __go_up_by_basenames() {
 			continue
 		fi
 
-		# strips off trailing slash; this allows a user to pass a basename with an
+		# strips off trailing slash; this allows a user to pass in a basename with an
 		# optional trailing slash
 		basename=${basename%/}
 		[[ $basename == */* ]] && return 5
