@@ -75,7 +75,6 @@ up() {
 		-*)
 			printf "%s: invalid option -- '%s'\n" "$FUNCNAME" "${1#-}"
 			return 1
-			;;
 	esac
 
 	__go_up_by_basenames "$@"
