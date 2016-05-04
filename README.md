@@ -9,6 +9,20 @@
 
 ## Installation
 
+Clone the project to a `.bash` folder in your home directory:
+
+```bash
+mkdir ~/.bash
+cd ~/.bash
+git clone https://github.com/helpermethod/up.git
+```
+
+Edit your `~/.bash_profile` or `~/.profile` or `~/.bashrc` (for Ubuntu) and add the following to the top:
+
+```bash
+source "~/.bash/up/src/.bash_functions"
+```
+
 ## Usage
 
 When called with no arguments, `up` works exactly like `cd ..` (but is 3 chars shorter)
