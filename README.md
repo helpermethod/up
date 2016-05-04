@@ -23,6 +23,12 @@ Edit your `~/.bash_profile` or `~/.profile` or `~/.bashrc` (for Ubuntu) and add 
 source "~/.bash/up/src/.bash_functions"
 ```
 
+If you would like to use auto-completion, add the following line:
+
+```bash
+source "~/.bash/up/completion/up"
+```
+
 ## Usage
 
 When called with no arguments, `up` works exactly like `cd ..` (but is 3 chars shorter)
