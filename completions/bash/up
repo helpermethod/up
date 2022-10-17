@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+_up() {
+  local -r current_word=${COMP_WORDS[COMP_CWORD]}
+  local pwd_without_leading_slash=${PWD:1}
+
+  local basenames=()
+  IFS=/ read -r -a basenames <<< "${pwd_without_leading_slash%/*}" 
+
+  [[ $PWD != / ]] && basenames+=(/)
+
+  local candidate
+
+  for basename in "${basenames[@]}"; do
+    if [[ $basename == "$current_word"* ]]; then
+      printf -v candidate '%q' "$basename"
+
+      COMPREPLY+=("$candidate")
+    fi
+  done  
+}  
+
+complete -o default -F _up up
