@@ -16,6 +16,6 @@ jobs:
       - name: Run static analysis
         uses: reviewdog/action-shellcheck@v1
       - name: Set up bats
-        run: apt-get install -y bats@1.8.0
+        run: sudo apt-get install -y bats@1.8.0
       - name: Run tests
         run: bats up.bats
