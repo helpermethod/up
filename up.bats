@@ -1,34 +1,34 @@
-@test 'up when given no arguments should switch to the parent directory' {
+@test 'when given no arguments should switch to the parent directory' {
 	# given
 	source up
 
-	local -r java_path=${BATS_TEST_TMPDIR}/java/src/main/java
-	mkdir -p "$java_path"
-	cd "$java_path"
+	local -r path=${BATS_TEST_TMPDIR}/src/main/java
+	mkdir -p "$path"
+	cd "$path"
 
 	# when
 	up
 
 	# then
-	[[ $PWD == "${BATS_TEST_TMPDIR}/java/src/main" ]]
+	[[ $PWD == "${BATS_TEST_TMPDIR}/src/main" ]]
 }
 
-@test 'up when given a basename should switch to the parent directory with that basename' {
+@test 'when given a basename should switch to the parent directory with that basename' {
 	# given
 	source up
 
-	local -r java_path=${BATS_TEST_TMPDIR}/java/src/main/java
-	mkdir -p "$java_path"
-	cd "$java_path"
+	local -r path=${BATS_TEST_TMPDIR}/src/main/java
+	mkdir -p "$path"
+	cd "$path"
 
 	# when
 	up src
 
 	# then
-	[[ $PWD == "${BATS_TEST_TMPDIR}/java/src" ]]
+	[[ $PWD == "${BATS_TEST_TMPDIR}/src" ]]
 }
 
-@test 'up when given / as its argument should switch to the root directory' {
+@test 'when given / as its argument should switch to the root directory' {
 	# given
 	source up
 
@@ -41,17 +41,32 @@
 	[[ $PWD == / ]]
 }
 
-@test 'up when given a basename should switch to the first parent directory with that basename' {
+@test 'when given a basename should switch to the first parent directory with that basename' {
 	# given
 	source up
 
-	local -r java_path=${BATS_TEST_TMPDIR}/java/src/main/java/com/github/helpermethod
-	mkdir -p "$java_path"
-	cd "$java_path"
+	local -r path=${BATS_TEST_TMPDIR}/java/src/main/java/com/github/helpermethod
+	mkdir -p "$path"
+	cd "$path"
 
 	# when
 	up java
 
 	# then
 	[[ $PWD == "${BATS_TEST_TMPDIR}/java/src/main/java" ]]
+}
+
+@test 'when given a basename with whitespace in it should switch to the parent directory with that basename' {
+	# given
+	source up
+
+	local -r path=${BATS_TEST_TMPDIR}/com/git\ hub/helpermethod
+	mkdir -p "$path"
+	cd "$path"
+
+	# when
+	up git\ hub
+
+	# then
+	[[ $PWD == "${BATS_TEST_TMPDIR}/com/git hub" ]]
 }
