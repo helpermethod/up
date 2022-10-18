@@ -5,10 +5,11 @@ on:
       - main
     paths-ignore:
       - README.md
-
 jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
+      - name: Check code style
+        uses: reviewdog/action-shfmt@v1.0.2
