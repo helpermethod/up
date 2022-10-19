@@ -20,7 +20,7 @@ jobs:
       - name: Run tests
         run: bats --report-formatter junit up.bats
       - name: Create test report 
-        run: uses: dorny/test-reporter@v1.6.0
+        uses: dorny/test-reporter@v1.6.0
         if: always()
         with:
           name: Test report
