@@ -14,8 +14,15 @@ jobs:
       - name: Check code style
         uses: reviewdog/action-shfmt@v1.0.2
       - name: Run static analysis
-        uses: reviewdog/action-shellcheck@v1
+        uses: reviewdog/action-shellcheck@v1.1.0
       - name: Set up bats
         run: npm install -g bats@1.8.0
       - name: Run tests
-        run: bats up.bats
+        run: bats --report-formatter junit up.bats
+      - name: Create test report 
+        run: uses: dorny/test-reporter@v1.6.0
+        if: always()
+        with:
+          name: Test report
+          path: report.xml
+          reporter: java-junit
