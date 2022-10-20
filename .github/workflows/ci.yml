@@ -23,7 +23,7 @@ jobs:
       - name: Set up bats
         run: npm install -g bats@1.8.0
       - name: Run tests
-        run: bats --report-formatter junit up.bats completion/bash/up.bats
+        run: bats --report-formatter junit up.bats completion/bash/_up.bats
       - name: Create test report 
         uses: dorny/test-reporter@v1.6.0
         if: always()

@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
+load up
 
 @test 'up should set PWD to the parent directory when called without arguments' {
-	# shellcheck source=up
-	source up
-
 	local -r path=${BATS_TEST_TMPDIR}/src/main/java
 	mkdir -p "$path"
 	cd "$path"
@@ -14,8 +12,6 @@
 }
 
 @test 'up should set PWD to the parent directory with the same basename as up was called with' {
-	# shellcheck source=up
-	source up
 
 	local -r path=${BATS_TEST_TMPDIR}/src/main/java
 	mkdir -p "$path"
@@ -27,9 +23,6 @@
 }
 
 @test 'up should set PWD to the root directory when called with /' {
-	# shellcheck source=up
-	source up
-
 	cd "${BATS_TEST_TEMPDIR}"
 
 	up /
@@ -38,9 +31,6 @@
 }
 
 @test 'up should set PWD to the first parent directory with the same basename as up was called with' {
-	# shellcheck source=up
-	source up
-
 	local -r path=${BATS_TEST_TMPDIR}/java/src/main/java/com/github/helpermethod
 	mkdir -p "$path"
 	cd "$path"
@@ -51,10 +41,6 @@
 }
 
 @test 'up should set PWD to the parent directory with the same whitespace-containing basename as up was called with' {
-	# shellcheck source=up
-
-	source up
-
 	local -r path=${BATS_TEST_TMPDIR}/com/git\ hub/helpermethod
 	mkdir -p "$path"
 	cd "$path"
