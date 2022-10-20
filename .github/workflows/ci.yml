@@ -11,7 +11,7 @@ on:
     paths-ignore:
       - README.md
 jobs:
-  build:
+  test:
     runs-on: ubuntu-20.04
     steps:
       - name: Check out repository
@@ -23,7 +23,7 @@ jobs:
       - name: Set up bats
         run: npm install -g bats@1.8.0
       - name: Run tests
-        run: bats --report-formatter junit . completion/bash
+        run: bats --report-formatter junit . completions/bash
       - name: Create test report 
         uses: dorny/test-reporter@v1.6.0
         if: always()
