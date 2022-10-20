@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-@test 'up should set PWD to the parent directory when calling without arguments' {
+@test 'up should set PWD to the parent directory when called without arguments' {
 	# shellcheck source=up
 	source up
 
@@ -13,7 +13,7 @@
 	[[ $PWD == "${BATS_TEST_TMPDIR}/src/main" ]]
 }
 
-@test 'up should set PWD to the parent directory with the same basename it was called with' {
+@test 'up should set PWD to the parent directory with the same basename as up was called with' {
 	# shellcheck source=up
 	source up
 
@@ -37,7 +37,7 @@
 	[[ $PWD == / ]]
 }
 
-@test 'up should set PWD to the first parent directory with the same basename it was called with' {
+@test 'up should set PWD to the first parent directory with the same basename as up was called with' {
 	# shellcheck source=up
 	source up
 
@@ -50,7 +50,7 @@
 	[[ $PWD == "${BATS_TEST_TMPDIR}/java/src/main/java" ]]
 }
 
-@test 'up should set PWD to the parent directory with the same whitespace-containing basename it was called with' {
+@test 'up should set PWD to the parent directory with the same whitespace-containing basename as up was called with' {
 	# shellcheck source=up
 
 	source up
