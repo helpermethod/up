@@ -14,7 +14,7 @@ jobs:
       - name: Check code style
         uses: reviewdog/action-shfmt@v1.0.2
       - name: Run static analysis
-        uses: reviewdog/action-shellcheck@v1.1.0
+        uses: reviewdog/action-shellcheck@v1.15.0
       - name: Set up bats
         run: npm install -g bats@1.8.0
       - name: Run tests
