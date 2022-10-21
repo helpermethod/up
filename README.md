@@ -6,6 +6,6 @@
 
 up is a tiny shell function which allows you to switch to a parent directory by entering its basename.
 
-##Features
+## Features
 
 * :runner: lightning fast
