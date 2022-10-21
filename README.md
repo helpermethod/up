@@ -4,7 +4,7 @@
 
 *Trapped in that deeply nested subfolder, with no way out? up got you covered!*
 
-up is a tiny shell function which allows you to switch to a parent directory by entering its basename.
+up is a tiny shell function which allows you to switch to any parent directory by entering its basename.
 
 ## Features
 
