@@ -8,4 +8,4 @@ up is a tiny shell function which allows you to switch to a parent directory by 
 
 ## Features
 
-* :runner: lightning fast
+* :zap: lightning fast
