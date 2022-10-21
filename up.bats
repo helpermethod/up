@@ -11,8 +11,7 @@ load up
 	[[ $PWD == "${BATS_TEST_TMPDIR}/src/main" ]]
 }
 
-@test 'up should set PWD to the parent directory with the same basename as up was called with' {
-
+@test 'up should set PWD to the parent directory ending on the given basename' {
 	local -r path=${BATS_TEST_TMPDIR}/src/main/java
 	mkdir -p "$path"
 	cd "$path"
@@ -30,7 +29,7 @@ load up
 	[[ $PWD == / ]]
 }
 
-@test 'up should set PWD to the first parent directory with the same basename as up was called with' {
+@test 'up should set PWD to the first parent directory ending on the given basename' {
 	local -r path=${BATS_TEST_TMPDIR}/java/src/main/java/com/github/helpermethod
 	mkdir -p "$path"
 	cd "$path"
@@ -40,7 +39,7 @@ load up
 	[[ $PWD == "${BATS_TEST_TMPDIR}/java/src/main/java" ]]
 }
 
-@test 'up should set PWD to the parent directory with the same whitespace-containing basename as up was called with' {
+@test 'up should set PWD to the parent directory ending on the given whitespace-containing basename' {
 	local -r path=${BATS_TEST_TMPDIR}/com/git\ hub/helpermethod
 	mkdir -p "$path"
 	cd "$path"
