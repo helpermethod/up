@@ -9,5 +9,5 @@ up is a tiny shell function which allows you to switch to any parent directory b
 ## Features
 
 * :zap: Lightning fast
-* :shell: Works Bash and zsh
-* :keyboard: Autocompletion for basenames
+* :keyboard: Bash completion for basenames
+* :shell: Supports Bash and zsh
