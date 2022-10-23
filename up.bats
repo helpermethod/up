@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 load up
 
-@test 'up should set PWD to the parent directory when called without arguments' {
+@test 'up should set PWD to the direct parent directory when called without arguments' {
 	local -r path=${BATS_TEST_TMPDIR}/src/main/java
 	mkdir -p "$path"
 	cd "$path"

@@ -12,7 +12,7 @@ assert_contains() {
 	return 1
 }
 
-@test '_up should autocomplete the list of parent directory names when given no arguments' {
+@test '_up should autocomplete the list of parent directory basenames when given no arguments' {
 	mkdir -p "${BATS_TEST_TMPDIR}"/src/main/java
 	cd "${BATS_TEST_TMPDIR}"/src/main/java
 
@@ -25,7 +25,7 @@ assert_contains() {
 	assert_contains main "${COMPREPLY[@]}"
 }
 
-@test '_up should autocomplete a parent directory name' {
+@test '_up should autocomplete the parent directory basename' {
 	mkdir -p "${BATS_TEST_TMPDIR}"/src/main/java
 	cd "${BATS_TEST_TMPDIR}"/src/main/java
 
@@ -36,7 +36,7 @@ assert_contains() {
 	assert_contains main "${COMPREPLY[@]}"
 }
 
-@test '_up should autocomplete a parent directory name containing whitespace' {
+@test '_up should autocomplete the parent directory basename containing whitespace' {
 	mkdir -p "${BATS_TEST_TMPDIR}"/com/git\ hub/helpermethod
 	cd "${BATS_TEST_TMPDIR}"/com/git\ hub/helpermethod
 
