@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 load up
 
-@test 'up should set PWD to the parent directory when called without arguments' {
+@test 'up should jump to the parent directory when called without arguments' {
 	local -r path=${BATS_TEST_TMPDIR}/src/main/java
 	mkdir -p "$path"
 	cd "$path"
@@ -11,7 +11,7 @@ load up
 	[[ $PWD == "${BATS_TEST_TMPDIR}/src/main" ]]
 }
 
-@test 'up should set PWD to the parent directory ending on the given name' {
+@test 'up should jump to the parent directory ending on the given name' {
 	local -r path=${BATS_TEST_TMPDIR}/src/main/java
 	mkdir -p "$path"
 	cd "$path"
@@ -21,7 +21,7 @@ load up
 	[[ $PWD == "${BATS_TEST_TMPDIR}/src" ]]
 }
 
-@test 'up should set PWD to the root directory when called with /' {
+@test 'up should jump to the root directory when called with /' {
 	cd "${BATS_TEST_TEMPDIR}"
 
 	up /
@@ -29,7 +29,7 @@ load up
 	[[ $PWD == / ]]
 }
 
-@test 'up should set PWD to the first parent directory ending on the given name' {
+@test 'up should jump to the first parent directory with the given name' {
 	local -r path=${BATS_TEST_TMPDIR}/java/src/main/java/com/github/helpermethod
 	mkdir -p "$path"
 	cd "$path"
@@ -39,7 +39,7 @@ load up
 	[[ $PWD == "${BATS_TEST_TMPDIR}/java/src/main/java" ]]
 }
 
-@test 'up should set PWD to the parent directory ending on the given name containing whitespace' {
+@test 'up should jump to the parent directory with the given name containing whitespace' {
 	local -r path=${BATS_TEST_TMPDIR}/com/git\ hub/helpermethod
 	mkdir -p "$path"
 	cd "$path"
