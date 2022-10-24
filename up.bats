@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 load up
 
-@test 'up should set PWD to the direct parent directory when called without arguments' {
+@test 'up should set PWD to the parent directory when called without arguments' {
 	local -r path=${BATS_TEST_TMPDIR}/src/main/java
 	mkdir -p "$path"
 	cd "$path"
@@ -39,7 +39,7 @@ load up
 	[[ $PWD == "${BATS_TEST_TMPDIR}/java/src/main/java" ]]
 }
 
-@test 'up should set PWD to the parent directory ending on given name containing whitespace' {
+@test 'up should set PWD to the parent directory ending on the given name containing whitespace' {
 	local -r path=${BATS_TEST_TMPDIR}/com/git\ hub/helpermethod
 	mkdir -p "$path"
 	cd "$path"
