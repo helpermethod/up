@@ -6,7 +6,7 @@
 
 up is a tiny shell function which allows you to switch to any parent directory by entering its name.
 
-## Features
+## :sparkles: Features
 
 * :zap: Lightning fast
 * :keyboard: Bash completion for parent directory names
