@@ -11,3 +11,5 @@ up is a tiny shell function which allows you to switch to any parent directory i
 * :zap: Lightning fast
 * :keyboard: Bash completion for parent directory names
 * :shell: Works with Bash and zsh
+
+## :gear: Installation
