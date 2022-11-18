@@ -1,6 +1,7 @@
 # :climbing: up
 
 [![ci](https://github.com/helpermethod/up/actions/workflows/ci.yml/badge.svg)](https://github.com/helpermethod/up/actions/workflows/ci.yml)
+[![license](https://badgen.net/badge/license/MIT/blue)](https://github.com/helpermethod/up/blob/main/LICENSE)
 
 *Trapped in a deeply nested subfolder, with no way out? up to the rescue!*
 
