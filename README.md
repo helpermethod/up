@@ -5,7 +5,7 @@
 
 *Trapped in a deeply nested subfolder, with no way out? up to the rescue!*
 
-up is a tiny shell function which allows you to switch to any parent directory its (base)name.
+up is a tiny shell function which allows you to switch to any parent directory by its (base)name.
 
 ## :sparkles: Features
 
