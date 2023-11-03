@@ -2,7 +2,7 @@
 
 _up() {
 	local -r current_word=${COMP_WORDS[COMP_CWORD]}
-	local pwd_without_leading_slash=${PWD:1}
+	local -r pwd_without_leading_slash=${PWD:1}
 
 	local basenames=()
 	IFS=/ read -r -a basenames <<<"${pwd_without_leading_slash%/*}"
