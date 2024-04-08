@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 up() {
-	(($# == 0)) && cd ..
-	[[ $1 == / ]] && cd /
+	(($# == 0)) && cd .. && return
+	[[ $1 == / ]] && cd / && return
 
 	# shellcheck disable=SC2164
-	cd "${PWD%/"${PWD##*/"$1"/}"}"
+	cd "${PWD%"${PWD##*/"$1"}"}"
 }
