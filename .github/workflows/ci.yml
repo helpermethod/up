@@ -24,7 +24,7 @@ jobs:
       - name: Run static analysis
         uses: reviewdog/action-shellcheck@v1.20.0
       - name: Set up bats
-        run: npm install -g bats@1.8.0
+        run: sudo npm install -g bats@1.11.0
       - name: Run tests
         run: bats --report-formatter junit . completion/bash
       - name: Create test report 
