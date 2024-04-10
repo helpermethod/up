@@ -23,10 +23,14 @@ jobs:
         uses: reviewdog/action-shfmt@v1.0.2
       - name: Run static analysis
         uses: reviewdog/action-shellcheck@v1.20.0
-      - name: Set up bats
-        run: sudo npm install -g bats@1.11.0
       - name: Run tests
-        run: bats --report-formatter junit . completion/bash
+        run: |
+          # workaround for https://github.com/actions/runner-images/issues/9644
+          mkdir ~/.npm-global
+          npm config set prefix '~/.npm-global'
+          export PATH=~/.npm-global/bin:$PATH
+          npm install -g bats@1.11.0
+          bats --report-formatter junit . completion/bash
       - name: Create test report 
         uses: dorny/test-reporter@v1.8.0
         if: always()
