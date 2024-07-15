@@ -22,7 +22,7 @@ jobs:
       - name: Check code style
         uses: reviewdog/action-shfmt@v1.0.2
       - name: Run static analysis
-        uses: reviewdog/action-shellcheck@v1.24.0
+        uses: reviewdog/action-shellcheck@v1.26.0
       - name: Run tests
         run: |
           # workaround for https://github.com/actions/runner-images/issues/9644
