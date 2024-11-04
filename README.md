@@ -14,3 +14,20 @@ up is a tiny shell function which lets you to jump to a parent directory by its 
 * :shell: Works with Bash and zsh
 
 ## :gear: Installation
+
+### git + Bash
+
+1. Clone the git repository
+
+```sh
+git clone https://github.com/helpermethod/up ~/.up
+```
+
+2. Add the following line to your `.bashrc` (Linux) or `.bash_profile` (macOS)
+
+```sh
+. "$HOME/.up/up"
+```
+
+## Usage
+
