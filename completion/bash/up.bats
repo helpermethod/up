@@ -25,6 +25,17 @@ assert_contains() {
 	assert_contains main "${COMPREPLY[@]}"
 }
 
+@test '_up should not autocomplete the current directory name when given no arguments' {
+        mkdir -p "${BATS_TEST_TMPDIR}"/src/main/java
+        cd "${BATS_TEST_TMPDIR}"/src/main/java
+
+        COMP_WORDS=(up)
+        COMP_CWORD=1
+        _up
+
+        ! assert_contains java "${COMPREPLY[@]}"  
+}
+
 @test '_up should autocomplete the parent directory name' {
 	mkdir -p "${BATS_TEST_TMPDIR}"/src/main/java
 	cd "${BATS_TEST_TMPDIR}"/src/main/java

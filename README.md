@@ -11,13 +11,13 @@ up is a tiny shell function which lets you jump to a parent directory by its nam
 
 * :zap: Lightning fast
 * :keyboard: Bash completion for parent directory names
-* :shell: Works with Bash and zsh
+* :shell: Works with Bash and Zsh
 
 ## :gear: Installation
 
-### git & Bash
+### :shell: Git & Bash
 
-Clone `up`'s git repository.
+Clone `up`'s Git repository.
 
 ```sh
 git clone https://github.com/helpermethod/up ~/.up
@@ -35,9 +35,9 @@ Add the following line to your `.bashrc` (Linux) or `.bash_profile` (macOS) to e
 . "$HOME/.up/completion/bash/up"
 ```
 
-### git & zsh
+### :shell: Git & Zsh
 
-Clone `up`'s git repository.
+Clone `up`'s Git repository.
 
 ```sh
 git clone https://github.com/helpermethod/up ~/.up
