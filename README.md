@@ -45,7 +45,7 @@ git clone https://github.com/helpermethod/up ~/.up
 
 Add the following line to your `.zshrc` to install `up`.
 
-```
+```sh
 . "$HOME/.up/up"
 ```
 
