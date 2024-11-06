@@ -10,7 +10,7 @@ up is a tiny shell function which lets you jump to a parent directory by its nam
 ## :sparkles: Features
 
 * :zap: Lightning fast
-* :keyboard: Bash completion for parent directory names
+* :keyboard: Shell completion for parent directory names
 * :shell: Works with Bash and Zsh
 
 ## :gear: Installation
