@@ -5,7 +5,9 @@ _up() {
 	local -r pwd_without_leading_slash=${PWD:1}
 
 	local basenames=()
-	IFS=/ read -r -a basenames <<<"${pwd_without_leading_slash%/*}"
+        while IFS= read -r -d/; do
+          basenames+=("$REPLY")
+        done <<<"$pwd_without_leading_slash"
 
 	[[ $PWD != / ]] && basenames+=(/)
 

@@ -29,7 +29,7 @@ Add the following line to your `.bashrc` (Linux) or `.bash_profile` (macOS) to i
 . "$HOME/.up/up"
 ```
 
-Add the following line to your `.bashrc` (Linux) or `.bash_profile` (macOS) to enable `up`'s Bash completion.
+Add the following line to your `.bashrc` (Linux) or `.bash_profile` (macOS) to enable `up`'s shell completion.
 
 ```sh
 . "$HOME/.up/completion/bash/up"
@@ -37,7 +37,25 @@ Add the following line to your `.bashrc` (Linux) or `.bash_profile` (macOS) to e
 
 ### git & zsh
 
-TBD
+Clone `up`'s git repository.
+
+```sh
+git clone https://github.com/helpermethod/up ~/.up
+```
+
+Add the following line to your `.zshrc` to install `up`.
+
+```
+. "$HOME/.up/up"
+```
+
+Add the following lines to your `.zshrc` to enable `up`'s shell completion.
+
+```sh
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+. "$HOME/.up/completion/bash/up"
+```
 
 ## Usage
 
