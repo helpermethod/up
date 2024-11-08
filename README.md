@@ -40,7 +40,7 @@ Add the following line to your `.bashrc` (Linux) or `.bash_profile` (macOS) to e
 Clone `up`'s Git repository.
 
 ```sh
-git clone https://github.com/helpermethod/up ~/.up
+$ git clone https://github.com/helpermethod/up ~/.up
 ```
 
 Add the following line to your `.zshrc` to install `up`.
@@ -59,10 +59,23 @@ autoload -U +X bashcompinit && bashcompinit
 
 ## Usage
 
-Type `up` followed by pressing the tab key twice to get a list of parent directory names.
+Type `up` followed by pressing the `<tab>` key to get the list of parent directory names.
 
 ```sh
-up <tab><tab>
+$ up <tab>
+.up           /             completion    helpermethod  home
 ```
 
-Type `up` 
+Jump to a parent directory by typing `up` followed by the parent directory name.
+
+```
+$ up completion
+```
+
+You can also autocomplete the parent directory name.
+
+```sh
+$ up co<tab>
+```
+
+Type `up` without any argument to jump to the parent directory, similar to `cd ..`
