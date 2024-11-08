@@ -5,5 +5,5 @@ up() {
 	[[ $1 == / ]] && cd / && return
 
 	# shellcheck disable=SC2164
-	cd "${PWD%"${PWD##*/"$1"}"}"
+	cd "${PWD%"${PWD##*/"$1"/}"}"
 }

@@ -59,4 +59,10 @@ autoload -U +X bashcompinit && bashcompinit
 
 ## Usage
 
-TBD
+Type `up` followed by pressing the tab key twice to get a list of parent directory names.
+
+```sh
+up <tab><tab>
+```
+
+Type `up` 

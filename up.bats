@@ -11,7 +11,7 @@ load up
 	[[ $PWD == "${BATS_TEST_TMPDIR}/src/main" ]]
 }
 
-@test 'up should jump to the parent directory ending on the given name' {
+@test 'up should jump to the parent directory with the given name' {
 	local -r path=${BATS_TEST_TMPDIR}/src/main/java
 	mkdir -p "$path"
 	cd "$path"
@@ -47,4 +47,14 @@ load up
 	up git\ hub
 
 	[[ $PWD == "${BATS_TEST_TMPDIR}/com/git hub" ]]
+}
+
+@test 'up should jump to the parent directory with the exact given name' {
+	local -r path=${BATS_TEST_TMPDIR}/java/build/libs/java-0.0.1-SNAPSHOT
+	mkdir -p "$path"
+	cd "$path"
+
+	up java
+
+	[[ $PWD == "${BATS_TEST_TMPDIR}/java" ]]
 }
