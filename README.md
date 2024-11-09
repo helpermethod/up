@@ -59,7 +59,7 @@ autoload -U +X bashcompinit && bashcompinit
 
 ## :mag: Usage
 
-Get the list of parent directory names.
+Get a list of parent directory names.
 
 ```sh
 $ up <tab>
