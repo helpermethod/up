@@ -5,7 +5,7 @@
 
 > Tired of repeatedly typing `cd ..` to walk up the directory tree? Fed up with defining aliases to jump to the first, second or nth parent directory? `up` to the rescue!
 
-up is a tiny shell function which lets you jump to a parent directory by its name.
+up is a tiny shell function which lets you jump to a parent directory by name.
 
 ## :sparkles: Features
 
