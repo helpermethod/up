@@ -13,7 +13,7 @@ up is a tiny shell function which lets you jump to a parent directory by its nam
 * :keyboard: Shell completion for parent directory names
 * :shell: Works with Bash and Zsh
 
-## :hammer_and_wrench Installation
+## :hammer_and_wrench: Installation
 
 ### :shell: Git & Bash
 
