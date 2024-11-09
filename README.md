@@ -59,23 +59,21 @@ autoload -U +X bashcompinit && bashcompinit
 
 ## Usage
 
-Type `up` followed by pressing the `<tab>` key to get the list of parent directory names.
+Get the list of parent directory names.
 
 ```sh
 $ up <tab>
 .up           /             completion    helpermethod  home
 ```
 
-Jump to a parent directory by typing `up` followed by the parent directory name.
+Jump to a parent directory by name.
 
 ```
 $ up completion
 ```
 
-You can also autocomplete the parent directory name.
+Jump to a parent directory by prefix.
 
 ```sh
 $ up co<tab>
 ```
-
-Type `up` without any argument to jump to the parent directory, similar to `cd ..`
