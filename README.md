@@ -43,13 +43,13 @@ Clone `up`'s Git repository.
 $ git clone https://github.com/helpermethod/up ~/.up
 ```
 
-Add the following line to your `.zshrc` to install `up`.
+Add the following to your `.zshrc` to install `up`.
 
 ```sh
 . "$HOME/.up/up"
 ```
 
-Add the following lines to your `.zshrc` to enable `up`'s shell completion.
+Add the following to your `.zshrc` to enable `up`'s shell completion.
 
 ```sh
 autoload -U +X compinit && compinit
