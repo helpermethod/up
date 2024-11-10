@@ -23,13 +23,13 @@ Clone `up`'s Git repository.
 $ git clone https://github.com/helpermethod/up ~/.up
 ```
 
-Add the following line to your `.bashrc` (Linux) or `.bash_profile` (macOS) to install `up`.
+Add the following to your `.bashrc` (Linux) or `.bash_profile` (macOS) to install `up`.
 
 ```sh
 . "$HOME/.up/up"
 ```
 
-Add the following line to your `.bashrc` (Linux) or `.bash_profile` (macOS) to enable `up`'s shell completion.
+Add the following to your `.bashrc` (Linux) or `.bash_profile` (macOS) to enable `up`'s shell completion.
 
 ```sh
 . "$HOME/.up/completion/bash/up"
