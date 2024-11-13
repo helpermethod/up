@@ -59,21 +59,21 @@ autoload -U +X bashcompinit && bashcompinit
 
 ## :mag: Usage
 
-Get a list of parent directory names.
+### Get a list of parent directory names
 
 ```sh
 $ up <tab>
 .up           /             completion    helpermethod  home
 ```
 
-Jump to a parent directory by name.
+ ### Jump to a parent directory by name
 
-```
+```sh
 $ up completion
 ```
 
-Jump to a parent directory by prefix.
+### Jump to a parent directory by name prefix
 
 ```sh
-$ up co<tab>
+up co<tab>
 ```
