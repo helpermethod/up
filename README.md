@@ -72,7 +72,7 @@ $ up <tab>
 $ up completion
 ```
 
-### Jump to a parent directory by name prefix
+### Jump to a parent directory by prefix
 
 ```sh
 up co<tab>
