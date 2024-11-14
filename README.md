@@ -75,5 +75,5 @@ $ up completion
 ### Jump to a parent directory by prefix
 
 ```sh
-up co<tab>
+$ up co<tab>
 ```
