@@ -5,6 +5,8 @@
 
 > Tired of repeatedly typing `cd ..` to walk up the directory tree? Fed up with defining aliases to jump to the first, second or nth parent directory? `up` to the rescue!
 
+![up](up.gif)
+
 up is a shell function for jumping to a parent directory by name.
 
 ## :sparkles: Features
