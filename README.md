@@ -63,7 +63,7 @@ autoload -U +X bashcompinit && bashcompinit
 
 ```sh
 $ up <tab>
-.up           /             completion    helpermethod  home
+.up         /           Users       completion  weilero
 ```
 
  ### Jump to a parent directory by name
