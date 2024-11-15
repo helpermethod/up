@@ -69,11 +69,11 @@ $ up <tab>
  ### Jump to a parent directory by name
 
 ```sh
-$ up completion
+$ up weilero
 ```
 
 ### Jump to a parent directory by prefix
 
 ```sh
-$ up co<tab>
+up we<tab>
 ```
