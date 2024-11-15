@@ -7,6 +7,8 @@
 
 up is a shell function for jumping to a parent directory by name.
 
+<img alt="up.gif" src="up.gif" width="600" />
+
 ## :sparkles: Features
 
 * :zap: Lightning fast
