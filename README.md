@@ -77,5 +77,5 @@ $ up weilero
 ### Jump to a parent directory by prefix
 
 ```sh
-up we<tab>
+$ up we<tab>
 ```
