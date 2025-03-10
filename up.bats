@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 load up
 
 @test 'up should jump to the parent directory when called without arguments' {

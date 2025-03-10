@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 _up() {
 	local -r current_word=${COMP_WORDS[COMP_CWORD]}
 	local -r pwd_without_leading_slash=${PWD:1}
