@@ -1,7 +1,6 @@
 # :climbing: up
 
 [![ci](https://github.com/helpermethod/up/actions/workflows/ci.yml/badge.svg)](https://github.com/helpermethod/up/actions/workflows/ci.yml)
-[![license](https://badgen.net/badge/license/MIT/blue)](https://github.com/helpermethod/up/blob/main/LICENSE)
 
 > Tired of repeatedly typing `cd ..` to walk up the directory tree? Fed up with defining aliases to jump to the first, second or nth parent directory? `up` to the rescue!
 
