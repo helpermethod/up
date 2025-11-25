@@ -23,7 +23,7 @@ load up
 }
 
 @test 'up should jump to the root directory when called with /' {
-	cd "${BATS_TEST_TEMPDIR}"
+	cd "${BATS_TEST_TMPDIR}"
 
 	up /
 
