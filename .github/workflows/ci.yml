@@ -32,7 +32,7 @@ jobs:
           npm install -g bats@1.11.0
           bats --report-formatter junit . completion/bash
       - name: Create test report 
-        uses: dorny/test-reporter@v2.4.0
+        uses: dorny/test-reporter@v2.5.0
         if: always()
         with:
           name: Test report
