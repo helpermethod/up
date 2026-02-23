@@ -73,7 +73,7 @@ $ up <tab>
 $ up weilero
 ```
 
-### Jump to a parent directory by prefix
+### Jump to a parent directory using tab completion
 
 ```sh
 $ up we<tab>
