@@ -20,7 +20,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v7
       - name: Check code style
-        uses: reviewdog/action-shfmt@v1.1.1
+        uses: reviewdog/action-shfmt@v1.2.0
       - name: Run static analysis
         uses: reviewdog/action-shellcheck@v1.35.1
       - name: Run tests
